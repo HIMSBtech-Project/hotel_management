@@ -17,14 +17,10 @@ const sanitizeUser = (user) => ({
 
 const register = async (req, res) => {
   try {
-    const { name, email, password, role = 'customer' } = req.body;
+    const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
       return res.status(400).json({ message: 'Name, email, and password are required' });
-    }
-
-    if (!['customer', 'admin'].includes(role)) {
-      return res.status(400).json({ message: 'Role must be customer or admin' });
     }
 
     if (password.length < 6) {
@@ -41,7 +37,7 @@ const register = async (req, res) => {
       name,
       email,
       password: hashedPassword,
-      role,
+      role: 'customer',
     });
 
     res.status(201).json({

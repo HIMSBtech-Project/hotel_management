@@ -4,7 +4,7 @@ import API from '../api/axios.js';
 
 function Register({ onAuth }) {
   const navigate = useNavigate();
-  const [form, setForm] = useState({ name: '', email: '', password: '', role: 'customer' });
+  const [form, setForm] = useState({ name: '', email: '', password: '' });
   const [message, setMessage] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -51,13 +51,6 @@ function Register({ onAuth }) {
             onChange={updateField}
             required
           />
-        </label>
-        <label>
-          Account type
-          <select name="role" value={form.role} onChange={updateField}>
-            <option value="customer">Customer</option>
-            <option value="admin">Admin</option>
-          </select>
         </label>
         {message && <p className="form-message">{message}</p>}
         <button className="primary-button" type="submit" disabled={isSubmitting}>

@@ -6,7 +6,7 @@ function Navbar({ profile, onLogout }) {
     <header className="site-header">
       <Link className="brand" to="/">
         <Hotel aria-hidden="true" />
-        <span>NM HotelReserve</span>
+        <span>HotelReserve</span>
       </Link>
 
       <nav className="nav-links" aria-label="Main navigation">

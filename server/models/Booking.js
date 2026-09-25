@@ -32,8 +32,14 @@ const bookingSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ['pending', 'confirmed', 'cancelled'],
-      default: 'pending',
+      enum: ['awaiting_payment', 'payment_review', 'confirmed', 'cancelled'],
+      default: 'awaiting_payment',
+    },
+    paymentExpiresAt: Date,
+    cancelledAt: Date,
+    payment: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Payment',
     },
   },
   { timestamps: true }
@@ -41,5 +47,6 @@ const bookingSchema = new mongoose.Schema(
 
 bookingSchema.index({ room: 1, checkIn: 1, checkOut: 1, status: 1 });
 bookingSchema.index({ user: 1, createdAt: -1 });
+bookingSchema.index({ paymentExpiresAt: 1 });
 
 module.exports = mongoose.model('Booking', bookingSchema);
