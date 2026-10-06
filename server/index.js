@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [process.env.CLIENT_ORIGIN || 'http://localhost:5173', 'http://127.0.0.1:5173'],
+    origin: [process.env.CLIENT_ORIGIN || 'http://localhost:5173', 'http://127.0.0.1:5173', 'https://hotel-reservation-client-1g7v.onrender.com'],
     credentials: true,
   })
 );
