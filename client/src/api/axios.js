@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api',
+  baseURL: 'https://hotel-reservation-server-r1ev.onrender.com',//for local development:http://localhost:5000/api
 });
 
 
